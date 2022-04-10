@@ -31,8 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-**yeg3d5ln((*e%(4am&hp$gcj2k5%o@dizt7v7g(vs@w6gc$7'
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = 'django-insecure-**yeg3d5ln((*e%(4am&hp$gcj2k5%o@dizt7v7g(vs@w6gc$7'
+#SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -174,7 +174,7 @@ CHANNEL_LAYERS = {
 }
 
 
-CELERY_BROKER_URL = os.environ['REDIS_URL']
+#CELERY_BROKER_URL = os.environ['REDIS_URL']
 #CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
