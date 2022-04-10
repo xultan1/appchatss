@@ -44,6 +44,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 # Application definition
 
 INSTALLED_APPS = [
+    'django_celery_beat',
+    'django_celery_results',
     'channels',
     'chat',
     'rest_framework',
@@ -59,6 +61,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -161,3 +166,14 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+CELERY_BROKER_URL = os.environ['REDIS_URL']
+#CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SELERLIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
