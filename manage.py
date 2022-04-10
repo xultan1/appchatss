@@ -3,10 +3,9 @@
 import os
 import sys
 
-from django.conf import settings
 
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
 #DJANGO_SETTINGS_MODULE=mysite.settings
 
 #DJANGO_SETTINGS_MODULE=mysite.settings
