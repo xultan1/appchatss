@@ -7,6 +7,7 @@ from celery.schedules import crontab
 from datetime import datetime, timedelta
 
 # set the default Django settings module for the 'celery' program.
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 app = Celery('mysite')
