@@ -25,8 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 
 # Quick-start development settings - unsuitable for production
