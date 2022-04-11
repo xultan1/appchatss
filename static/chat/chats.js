@@ -162,7 +162,7 @@ class App extends React.Component {
     handleClick(name) {
         document.querySelector(".people-list").style.display = "none";
         this.state.ws.close();
-       fetch('http://127.0.0.1:8000/chat/chats/'+name)
+       fetch('https://chatapps580.herokuapp.com/chat/chats/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -179,7 +179,7 @@ class App extends React.Component {
             message: [],
         });
 
-        fetch('http://127.0.0.1:8000/chat/history/'+name)
+        fetch('https://chatapps580.herokuapp.com/chat/history/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -187,7 +187,7 @@ class App extends React.Component {
             });
             if(this.state.history.length === 0 ){
 
-                fetch('http://127.0.0.1:8000/chat/chats/person/'+name)
+                fetch('https://chatapps580.herokuapp.com/chat/chats/person/'+name)
                 .then(res => res.json())
                 .then(data => {
                     this.setState({
@@ -219,7 +219,7 @@ class App extends React.Component {
     saveFriend = () => {
         var csrftoken = getCookie('csrftoken');
 
-        fetch('http://127.0.0.1:8000/chats/add/other/friend/', {
+        fetch('https://chatapps580.herokuapp.com/chats/add/other/friend/', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -250,7 +250,7 @@ class App extends React.Component {
 
         console.log(window.screen.height)
 
-        let x = window.location.href.replace('http://127.0.0.1:8000/thelisting/','')
+        let x = window.location.href.replace('https://chatapps580.herokuapp.com/thelisting/','')
         let p = window.location.href;
 
         let s = p.search('/') + 1
@@ -262,7 +262,7 @@ class App extends React.Component {
           p = p.substring(s)
         }
 
-        fetch('http://127.0.0.1:8000/chat/friends/ac')
+        fetch('https://chatapps580.herokuapp.com/chat/friends/ac')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -277,7 +277,7 @@ class App extends React.Component {
                 
             } catch (error) {
 
-                window.location.href = "http://127.0.0.1:8000/chat/people/ac";
+                window.location.href = "https://chatapps580.herokuapp.com/chat/people/ac";
                 
             }
 
@@ -304,7 +304,7 @@ class App extends React.Component {
     }
 
     connect = () =>{
-        fetch('http://127.0.0.1:8000/chat/history/'+this.state.p)
+        fetch('https://chatapps580.herokuapp.com/chat/history/'+this.state.p)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -313,7 +313,7 @@ class App extends React.Component {
         });
         
     
-        fetch('http://127.0.0.1:8000/chat/chats/'+this.state.p)
+        fetch('https://chatapps580.herokuapp.com/chat/chats/'+this.state.p)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -331,7 +331,7 @@ class App extends React.Component {
     }
 
     conne = () =>{ 
-        fetch('http://127.0.0.1:8000/chat/chats/person/'+this.state.user)
+        fetch('https://chatapps580.herokuapp.com/chat/chats/person/'+this.state.user)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -397,7 +397,7 @@ class App extends React.Component {
         
         /*if(this.state.history.length === 0 ){
 
-            fetch('http://127.0.0.1:8000/chat/chats/person/'+name)
+            fetch('https://chatapps580.herokuapp.com/chat/chats/person/'+name)
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -412,7 +412,7 @@ class App extends React.Component {
 
     connectSocket = () => {
 
-       /*fetch('http://127.0.0.1:8000/chat/chats/'+this.state.p)
+       /*fetch('https://chatapps580.herokuapp.com/chat/chats/'+this.state.p)
        .then(res => res.json())
        .then(data => {
            this.setState({
@@ -489,7 +489,7 @@ class App extends React.Component {
 //
             var csrftoken = getCookie('csrftoken');
 
-            fetch('http://127.0.0.1:8000/chat/chats/add/other/friend/', {
+            fetch('https://chatapps580.herokuapp.com/chat/chats/add/other/friend/', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
