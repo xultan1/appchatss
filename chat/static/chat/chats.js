@@ -349,7 +349,7 @@ class App extends React.Component {
         let x = this.state.personal1
 
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/all/new/'
             + x.id
