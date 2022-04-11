@@ -160,7 +160,7 @@ class App extends React.Component {
     }
 
     handleClick(name) {
-        if (window.screen.height < 1080) {
+        if (window.screen.width < 1100) {
             document.querySelector(".people-list").style.display = "none";
         }
         this.state.ws.close();
