@@ -12,7 +12,7 @@ from django.dispatch import receiver
 
 from django.http import HttpRequest
 from django.urls import path
-from chat.models import User,TestMessage3,TestMessage1
+from .models import User,TestMessage3,TestMessage1
 
 from . import views
 

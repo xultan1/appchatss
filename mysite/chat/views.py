@@ -27,7 +27,7 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from models import TestMessage3, User, TestMessage1,TestMessage2,TestFriend1
+from .models import TestMessage3, User, TestMessage1,TestMessage2,TestFriend1
 
 
 def index(request):
