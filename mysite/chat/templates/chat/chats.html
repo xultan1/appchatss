@@ -1,0 +1,131 @@
+<!-- chat/templates/chat/room.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <meta charset="utf-8"/>
+    <title>Chat Room</title>
+
+    <style>
+        #chat-message-input{
+            position: absolute; bottom: 0;
+            margin-left: 200px;
+            margin-right: auto;          
+        }
+
+        #chat-message-submit{
+            position: absolute; bottom: 0;
+        }
+
+        .form-control-lg{
+            width: max-content;
+        }
+        .message-div{
+            background-color: #DBF9FC;
+            width: 250px;
+            height: 60px;
+
+        }
+        .message-divRight{
+            background-color: #f31f1f;
+            margin-left: auto; 
+            margin-right: 0;
+            width: 250px;
+            height: 60px;
+        }
+    </style>
+
+</head>
+<body>
+
+ 
+    <div id="chat-log"></div>
+    <input id="chat-message-input" class="form-control form-control-lg" type="text" size="50">
+    <input id="chat-message-submit" class="btn btn-success" type="button" value="Send">
+
+    <script>
+
+    </script>
+    <script>
+
+        //const x ='{{chats_name.id}}';
+        const x ='{{chats_name.id}}';
+        const other = '{{chats_name.id}}';
+        const user = '{{user}}';
+        const xr = '{{chats_name.otherSender}}';
+        let message = '{{t.message}}';
+       // const roomName = JSON.parse(document.getElementById('chats-name').textContent);
+
+      // console.log(user + ' user')
+       for (let index = 0; index < 2; index++) {
+        message +=message
+        console.log(message + ' other') 
+       }
+       
+      // console.log(user + ' user') 
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/chat/'
+            + x
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const user = '{{user}}';
+            const data = JSON.parse(e.data);
+            const x ='{{chats_name.sender}}';
+            const xr = '{{chats_name.otherSender}}';
+            const y = '{{other}}';
+            const yr = '{{chats_name.OtherReceiver}}';
+            
+            //document.querySelector('#chat-log').value += (data.message + '\n');
+                let p = '';
+                let div = document.createElement('DIV');
+                p += data.message;
+                let sender = p.split(" ")[0];
+                div.innerHTML += data.message.replace(user,"").replace(y,'');
+
+                
+                if(sender == user){
+                    div.classList = 'message-div';
+                    document.querySelector('#chat-log').append(div);
+                }else{
+                    div.classList = 'message-divRight'
+                    document.querySelector('#chat-log').append(div)
+                }
+            
+            
+            //document.querySelector('#chat-log').append(data.message)
+        };
+
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+        document.querySelector('#chat-message-input').focus();
+        document.querySelector('#chat-message-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#chat-message-submit').click();
+            }
+        };
+
+        document.querySelector('#chat-message-submit').onclick = function(e) {
+            const messageInputDom = document.querySelector('#chat-message-input');
+            const message = messageInputDom.value;
+            const user = '{{user}}';
+            const id = '{{chats_name.id}}';
+            chatSocket.send(JSON.stringify({
+                'message': user + ' ' + message,
+                'id':id
+            }));
+            messageInputDom.value = '';
+        };
+    </script>
+</body>
+</html>
