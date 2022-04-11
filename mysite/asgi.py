@@ -5,6 +5,8 @@ import django
 
 #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
+from django.conf import settings
+
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
@@ -19,6 +21,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+#settings.configure()
 django.setup()
 
 application = ProtocolTypeRouter({
