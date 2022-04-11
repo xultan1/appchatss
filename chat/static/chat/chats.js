@@ -160,7 +160,9 @@ class App extends React.Component {
     }
 
     handleClick(name) {
-        document.querySelector(".people-list").style.display = "none";
+        if (window.screen.height < 1080) {
+            document.querySelector(".people-list").style.display = "none";
+        }
         this.state.ws.close();
        fetch('https://chatapps580.herokuapp.com/chat/chats/'+name)
         .then(res => res.json())
@@ -219,7 +221,7 @@ class App extends React.Component {
     saveFriend = () => {
         var csrftoken = getCookie('csrftoken');
 
-        fetch('http://127.0.0.1:8000/chats/add/other/friend/', {
+        fetch('https://chatapps580.herokuapp.com/chats/add/other/friend/', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -250,7 +252,7 @@ class App extends React.Component {
 
         console.log(window.screen.height)
 
-        let x = window.location.href.replace('http://127.0.0.1:8000/thelisting/','')
+        let x = window.location.href.replace('https://chatapps580.herokuapp.com/thelisting/','')
         let p = window.location.href;
 
         let s = p.search('/') + 1
