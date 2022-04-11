@@ -1,3 +1,4 @@
+from .wsgi import *  # add this line to top of your code
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 import chat.routing
