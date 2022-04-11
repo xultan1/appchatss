@@ -425,7 +425,7 @@ class App extends React.Component {
         
         this.state.theResponse.forEach(element => {
             const chatSocket = new WebSocket(
-                'ws://'
+                'wss://'
                 + window.location.host
                 + '/ws/chat/'
                 + element.id
