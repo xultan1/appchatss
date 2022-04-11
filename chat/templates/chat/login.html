@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link href="{% static 'chat/register_login.css' %}?newcode1" rel="stylesheet">
+</head>
+<body>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+    
+        <div class="form">
+            {% if message %}
+                <div class="subtitle" style="color: red;">{{ message }}</div>
+            {% endif %}
+            
+            <div class="title">Welcome</div>
+            <div class="input-container ic1">
+              <input id="firstname" class="input" type="text" placeholder=" " name="username" />
+              <div class="cut"></div>
+              <label for="firstname" class="placeholder">username</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="lastname" class="input" type="password" placeholder=" " name="password" />
+                <div class="cut"></div>
+                <label for="lastname" class="placeholder">Password</label>
+            </div>
+    
+            <button type="text" class="submit">Login</button>
+          </div>
+          <div style="padding-top: 32px;margin-left: 25px;">
+            <a style="color: white;">Don't have an account?</a> <a style="color: blueviolet;" href="{% url 'register' %}">Register here.</a>
+          </div>
+    </form>    
+</body>
+</html>
+
+
+
