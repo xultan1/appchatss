@@ -13,12 +13,10 @@ from django.core.asgi import get_asgi_application
 import chat.routing
 
 
-import os
-import sys
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_DIR)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 #settings.configure()
