@@ -27,7 +27,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://127.0.0.1:8000/chat/friends/ac')
+        fetch('https://chatapps580.herokuapp.com/chat/friends/ac')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -37,7 +37,7 @@ class App extends React.Component {
         });
 
 
-        fetch('http://127.0.0.1:8000/chat/loggedUser')
+        fetch('https://chatapps580.herokuapp.com/chat/loggedUser')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -117,7 +117,7 @@ class App extends React.Component {
         },this.connect);    
 
 
-        fetch('http://127.0.0.1:8000/chat/history/'+name)
+        fetch('https://chatapps580.herokuapp.com/chat/history/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -146,7 +146,7 @@ class App extends React.Component {
 
 
         
-        fetch('http://127.0.0.1:8000/chat/history/'+name)
+        fetch('https://chatapps580.herokuapp.com/chat/history/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -158,13 +158,13 @@ class App extends React.Component {
     }
 
     clickPlus = (e) => {
-        window.location.href = "http://127.0.0.1:8000/chat/people/ac"
+        window.location.href = "https://chatapps580.herokuapp.com/chat/people/ac"
     }
 
 
     connect = (e) => {
 
-        fetch('http://127.0.0.1:8000/chat/chats/'+this.state.personName)
+        fetch('https://chatapps580.herokuapp.com/chat/chats/'+this.state.personName)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -194,7 +194,7 @@ class App extends React.Component {
     connectSocket = () => {
 
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/chat/'
             + this.state.theResponse[0].id
@@ -225,7 +225,7 @@ class App extends React.Component {
 
 
         const chatSocketPublic = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/public/'
             + this.state.personName
@@ -267,7 +267,7 @@ class App extends React.Component {
     connectSocketPublic = () => {
 
         const chatSocketPublic = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/public/'
             + this.state.loggedInUser
@@ -360,7 +360,7 @@ class ChatView extends React.Component {
 
 
     componentDidMount(){
-        /*fetch('http://127.0.0.1:8000/chat/history/'+this.props.name)
+        /*fetch('https://chatapps580.herokuapp.com/chat/history/'+this.props.name)
         .then(res => res.json())
         .then(data => {
             this.setState({
