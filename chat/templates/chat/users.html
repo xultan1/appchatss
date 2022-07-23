@@ -2,25 +2,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <title>Users</title>
-    <link href="{% static 'chat/users.css' %}?newcode1" rel="stylesheet">
+    
+    <link href="{% static 'chat/design.css' %}?ver = 1.6" rel="stylesheet">
 </head>
-<body>
+<body style="padding: 0px;margin: 0px;">
 
 
-    <article class="users">
-        <header>
-            <h1 class="users__title"><span class="users__title--top">{{user.username}}</span></h1><span class="users__title--bottom">users</span>
-        </header>
+    <div class="topNav">
+
+      <p style="margin: 0px;font-size: 30px;padding-top: 20px;font-weight: bold;">Add User</p>
+			
+      
+    </div>
+
+    
+    <div>
+			<ul class="homeUl">
         {% for person in persons %}
-        <main class="users__profiles">
-          <article class="users__profile">
-            <a style="text-decoration: none;" href="{% url 'addFriend' person.username %}" ><span class="users__name">{{person.username}}</span></a>
-          </article>
-        </main>
-      </div>
-      {% endfor %}
+				<li>
+          <a href="{% url 'addFriend' person.username %}" class="asButton">{{person.username}}</a>
+				</li>
+        {% endfor %}
+			</ul>
+		</div>
+
+
+
+
+
+      
     
 </body>
 

@@ -27,7 +27,7 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import TestMessage3, User, TestMessage1,TestMessage2,TestFriend1
+from .models import TestMessage3, User, TestMessage1,TestMessage2,TestFriend1,SaveMessage
 
 
 def index(request):
@@ -164,6 +164,12 @@ class Friends(APIView):
 
 
 
+def logged_in_user(request):
+    user = User.objects.get(username=request.user)
+    user = user.username
+    return JsonResponse({"username":user})
+
+
 
 class Chats(APIView):
     def get(self,request,name):
@@ -171,7 +177,6 @@ class Chats(APIView):
             persons = User.objects.get(username=name)
             sender = User.objects.get(username=request.user)
             if TestMessage1.objects.filter(sender=sender,receiver=persons).exists() or TestMessage1.objects.filter(otherSender=sender,otherReceiver=persons).exists():
-       # person = TestMessage.objects.get(sender=sender,receiver=persons)
                 try:
                     person = TestMessage1.objects.get(sender=sender,receiver=persons) 
                 except:
@@ -202,7 +207,7 @@ class History(APIView):
             otherUser = User.objects.get(username=other)
             message1 = Q(sender=user,receiver=otherUser)
             message2 = Q(sender=otherUser,receiver=user)
-            message = TestMessage3.objects.filter(Q(sender=user,receiver=otherUser) | Q(sender=otherUser,receiver=user))
+            message = SaveMessage.objects.filter(Q(sender=user,receiver=otherUser) | Q(sender=otherUser,receiver=user))
             message = message.order_by("timestamp").all()
             serializer = ChatHistory(message,many=True)
             return Response(serializer.data)
