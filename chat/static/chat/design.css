@@ -446,6 +446,7 @@
 	background-color: rgb(20, 241, 149);
 	height: 55px;
 	width: 100%;
+	z-index: 10;
 }
 
 .notName{
