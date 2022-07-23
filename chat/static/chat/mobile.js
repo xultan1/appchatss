@@ -73,9 +73,9 @@ class App extends React.Component {
                          <a className="notName">{this.state.notification}</a>
                         </button>
 
-                        <button onClick={this.back} className='topNavDivButton' type="submit"><img className="topNavDivButtonImg" src={"http://127.0.0.1:8000/static/chat/previous.png"} alt=""/></button>
+                        <button onClick={this.back} className='topNavDivButton' type="submit"><img className="topNavDivButtonImg" src={"https://chatapps580.herokuapp.com/static/chat/previous.png"} alt=""/></button>
 
-                        <button onClick={this.clickPlus} className="addUserButton"><img className="plusButton" src={"http://127.0.0.1:8000/static/chat/icons8-plus-100.png"} alt=""/></button>
+                        <button onClick={this.clickPlus} className="addUserButton"><img className="plusButton" src={"https://chatapps580.herokuapp.com/static/chat/icons8-plus-100.png"} alt=""/></button>
 
                     </div>
 
@@ -406,7 +406,7 @@ class ChatView extends React.Component {
                     
                         <div className="textarea-container">
                             <textarea  value={this.state.chatMessage}  onChange={this.handleChange}  name="chatMessage" id="formTextArea" cols="10" rows="1"></textarea>
-                            <button onClick={this.submitMessage} className="formButton" type="submit"><img className="buttonImage" src={"http://127.0.0.1:8000/static/chat/send-message.png"} alt=""/></button>
+                            <button onClick={this.submitMessage} className="formButton" type="submit"><img className="buttonImage" src={"https://chatapps580.herokuapp.com/static/chat/send-message.png"} alt=""/></button>
                         </div>
                     
                     
