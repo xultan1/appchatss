@@ -79,7 +79,7 @@ class App extends React.Component {
 
                     </div>
 
-                    <div style={{display: this.state.showDiv,position:"absolute",width:"100%"}}>
+                    <div className="personNameDiv" style={{display: this.state.showDiv,position:"absolute",width:"70%"}}>
                         <p className="personName">{this.state.personName}</p>
                     </div>
                         
