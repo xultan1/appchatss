@@ -24,5 +24,6 @@ urlpatterns = [
     path('chats/person/<str:name>/', Personal.as_view(), name="personal"),
     path('chats/add/other/friend/', views.add_friend_other, name="otherFriend"),
     path('history/<str:other>/', History.as_view(), name="history"),
+    path('loggedUser', views.logged_in_user, name="loggedUser"),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
