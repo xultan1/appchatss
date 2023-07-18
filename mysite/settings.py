@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-**yeg3d5ln((*e%(4am&hp$gcj2k5%o@dizt7v7g(vs@w6gc$7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','16.171.27.225']
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','16.171.168.88']
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
