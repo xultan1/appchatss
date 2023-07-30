@@ -37,7 +37,7 @@ class App extends React.Component {
         });
 
 
-        fetch('https://16.171.146.12/chat/loggedUser')
+        fetch('http://16.171.146.12/chat/loggedUser')
         .then(res => res.json())
         .then(data => {
             this.setState({
