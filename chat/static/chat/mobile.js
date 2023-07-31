@@ -194,7 +194,7 @@ class App extends React.Component {
     connectSocket = () => {
 
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/chat/'
             + this.state.theResponse[0].id
@@ -225,7 +225,7 @@ class App extends React.Component {
 
 
         const chatSocketPublic = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/public/'
             + this.state.personName
@@ -267,7 +267,7 @@ class App extends React.Component {
     connectSocketPublic = () => {
 
         const chatSocketPublic = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/public/'
             + this.state.loggedInUser
