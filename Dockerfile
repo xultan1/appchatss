@@ -28,4 +28,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Run Django Channels development server
-CMD daphne appchatss.asgi:application -b 0.0.0.0 -p 8000
+CMD daphne mysite.asgi:application -b 0.0.0.0 -p 8000
