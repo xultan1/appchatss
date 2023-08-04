@@ -40,7 +40,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','16.171.146.12' ]
 
-#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 
 # Application definition
