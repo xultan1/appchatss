@@ -268,7 +268,7 @@ class App extends React.Component {
 
         const chatSocketPublic = new WebSocket(
             'ws://'
-            + window.location.host
+            + '16.171.146.12:8000'
             + '/ws/public/'
             + this.state.loggedInUser
             + '/'
