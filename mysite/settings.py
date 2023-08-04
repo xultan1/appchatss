@@ -46,6 +46,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 # Application definition
 
 INSTALLED_APPS = [
+    'django_celery_beat',
     'django_celery_results',
     'channels',
     'chat',
