@@ -279,6 +279,10 @@ class App extends React.Component {
             console.log('ConnectedPublic1')
         }
 
+        chatSocketPublic.onclose = function(e) {
+            console.log(e.error)
+        }
+
 
         chatSocketPublic.onmessage = (e) => {
             const data = JSON.parse(e.data);
