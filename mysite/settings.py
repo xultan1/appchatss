@@ -165,18 +165,20 @@ ASGI_APPLICATION = 'mysite.routing.application'
 
 # mysite/settings.py
 # Channels
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [("16.171.182.110", 6389)],
+            "hosts": [os.environ.get('REDIS_URL','16.171.182.110:6379')],
         },
     },
 }
 
 
+
 #CELERY_BROKER_URL = os.environ['REDIS_URL']
-CELERY_BROKER_URL = [("16.171.182.110", 6389)]
+CELERY_BROKER_URL = [("16.171.182.110", 6379)]
 #CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
