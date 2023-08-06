@@ -134,7 +134,9 @@ class App extends React.Component {
         let name = e.target.innerHTML.replace(/<\/?[^>]+(>|$)/g, "") 
         //name = name.replace('messaged','') 
         if (this.state.ws !== null) {
-            this.state.ws.close();            
+            this.state.ws.addEventListener("close", () => {
+                console.log("Connection closed");
+            });            
         }
         this.setState({
             hideDiv : "none",
@@ -184,7 +186,9 @@ class App extends React.Component {
             showDiv : "none"
         });
 
-        this.state.ws.close();
+        this.state.ws.addEventListener("close", () => {
+            console.log("Connection closed");
+        });
     }
 
 
