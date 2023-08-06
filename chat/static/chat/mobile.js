@@ -280,7 +280,7 @@ class App extends React.Component {
         }
 
         chatSocketPublic.onclose = function(e) {
-            console.log(e.error)
+            console.log(e.message)
         }
 
 
