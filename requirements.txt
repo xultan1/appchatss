@@ -8,7 +8,7 @@ cached-property==1.5.2
 celery==5.3.1
 certifi==2021.10.8
 cffi==1.15.1
-channels==3.0.5
+channels==4.0.0
 charset-normalizer==2.0.12
 click==8.1.6
 click-didyoumean==0.3.0
@@ -19,7 +19,7 @@ colorama==0.4.6
 constantly==15.1.0
 cron-descriptor==1.4.0
 cryptography==41.0.3
-daphne==3.0.0
+daphne==4.0.0
 dj-database-url==0.5.0
 Django==4.0.4
 django-celery-beat==2.5.0
