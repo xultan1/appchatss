@@ -284,6 +284,11 @@ class App extends React.Component {
         }
 
 
+        chatSocketPublic.addEventListener("error", (error) => {
+            console.log(error.message);
+        });
+
+
         chatSocketPublic.onmessage = (e) => {
             const data = JSON.parse(e.data);
             if(this.state.whoYouClicked !== data.message){
