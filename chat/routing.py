@@ -11,3 +11,4 @@ websocket_urlpatterns = [
     re_path(r'ws/all/new/(?P<id>\w+)/new/$', consumers.ChatConsumerAll.as_asgi()),
     re_path(r'ws/public/(?P<id>\w+)/$', consumers.ChatConsumerPublic.as_asgi()),
 ]
+
