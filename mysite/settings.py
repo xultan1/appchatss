@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-**yeg3d5ln((*e%(4am&hp$gcj2k5%o@dizt7v7g(vs@w6gc$7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','16.171.146.12' ]
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','16.171.182.110' ]
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
@@ -169,14 +169,14 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [("16.171.146.12", 6379)],
+            "hosts": [("16.171.182.110", 6379)],
         },
     },
 }
 
 
 #CELERY_BROKER_URL = os.environ['REDIS_URL']
-CELERY_BROKER_URL = [("16.171.146.12", 6379)]
+CELERY_BROKER_URL = [("16.171.182.110", 6379)]
 #CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']

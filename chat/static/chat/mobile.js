@@ -27,7 +27,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://16.171.146.12:8000/chat/friends/ac')
+        fetch('http://16.171.182.110:8000/chat/friends/ac')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -37,7 +37,7 @@ class App extends React.Component {
         });
 
 
-        fetch('http://16.171.146.12:8000/chat/loggedUser')
+        fetch('http://16.171.182.110:8000/chat/loggedUser')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -73,9 +73,9 @@ class App extends React.Component {
                          <a className="notName">{this.state.notification}</a>
                         </button>
 
-                        <button onClick={this.back} className='topNavDivButton' type="submit"><img className="topNavDivButtonImg" src={"http://16.171.146.12:8000/static/chat/previous.png"} alt=""/></button>
+                        <button onClick={this.back} className='topNavDivButton' type="submit"><img className="topNavDivButtonImg" src={"http://16.171.182.110:8000/static/chat/previous.png"} alt=""/></button>
 
-                        <button onClick={this.clickPlus} className="addUserButton"><img className="plusButton" src={"http://16.171.146.12:8000/static/chat/icons8-plus-100.png"} alt=""/></button>
+                        <button onClick={this.clickPlus} className="addUserButton"><img className="plusButton" src={"http://16.171.182.110:8000/static/chat/icons8-plus-100.png"} alt=""/></button>
 
                     </div>
 
@@ -117,7 +117,7 @@ class App extends React.Component {
         },this.connect);    
 
 
-        fetch('http://16.171.146.12:8000/chat/history/'+name)
+        fetch('http://16.171.182.110:8000/chat/history/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -146,7 +146,7 @@ class App extends React.Component {
 
 
         
-        fetch('http://16.171.146.12:8000/chat/history/'+name)
+        fetch('http://16.171.182.110:8000/chat/history/'+name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -158,13 +158,13 @@ class App extends React.Component {
     }
 
     clickPlus = (e) => {
-        window.location.href = "http://16.171.146.12:8000/chat/people/ac"
+        window.location.href = "http://16.171.182.110:8000/chat/people/ac"
     }
 
 
     connect = (e) => {
 
-        fetch('http://16.171.146.12:8000/chat/chats/'+this.state.personName)
+        fetch('http://16.171.182.110:8000/chat/chats/'+this.state.personName)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -268,7 +268,7 @@ class App extends React.Component {
 
         const chatSocketPublic = new WebSocket(
             'ws://'
-            + '16.171.146.12:8000'
+            + '16.171.182.110:8000'
             + '/ws/public/'
             + this.state.loggedInUser
             + '/'
@@ -360,7 +360,7 @@ class ChatView extends React.Component {
 
 
     componentDidMount(){
-        /*fetch('http://16.171.146.12:8000/chat/history/'+this.props.name)
+        /*fetch('http://16.171.182.110:8000/chat/history/'+this.props.name)
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -406,7 +406,7 @@ class ChatView extends React.Component {
                     
                         <div className="textarea-container">
                             <textarea  value={this.state.chatMessage}  onChange={this.handleChange}  name="chatMessage" id="formTextArea" cols="10" rows="1"></textarea>
-                            <button onClick={this.submitMessage} className="formButton" type="submit"><img className="buttonImage" src={"http://16.171.146.12:8000/static/chat/send-message.png"} alt=""/></button>
+                            <button onClick={this.submitMessage} className="formButton" type="submit"><img className="buttonImage" src={"http://16.171.182.110:8000/static/chat/send-message.png"} alt=""/></button>
                         </div>
                     
                     
