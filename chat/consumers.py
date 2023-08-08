@@ -174,7 +174,7 @@ class ChatConsumerAll(AsyncWebsocketConsumer):
 
 
 class ChatConsumerPublic(AsyncWebsocketConsumer):
-    async def connect(self):
+    def connect(self):
         self.all_name = self.scope['url_route']['kwargs']['id']
         #self.room_group_name = 'chat_%s' % self.chats_name
         self.room_group_name = 'public_%s' % self.all_name
