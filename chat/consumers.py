@@ -179,12 +179,12 @@ class ChatConsumerPublic(AsyncWebsocketConsumer):
         #self.room_group_name = 'chat_%s' % self.chats_name
         self.room_group_name = 'public_%s' % self.all_name
         # Join room group
-        await self.channel_layer.group_add(
-            self.room_group_name,
-            self.channel_name
+
+        async_to_sync(self.channel_layer.group_add)(
+            self.room_group_name, self.channel_name
         )
 
-        await self.accept()
+        self.accept()
 
 
     async def disconnect(self, close_code):
