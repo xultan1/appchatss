@@ -194,52 +194,18 @@ class ChatConsumerPublic(AsyncWebsocketConsumer):
         )
 
 
-    # Receive message from WebSocket
-    async def receive(self, text_data):
+    def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
-        self.user = self.scope["user"]
+        message = text_data_json["message"]
 
-        try:
-            await self.channel_layer.group_send(
-                self.room_group_name,
-                {
-                    'type': 'chat_message',
-                    'message': {"person":message["person"],"personMessaging":message["personMessaging"],"who":message["who"]},
-                }
-            )
-        except:
-            await self.channel_layer.group_send(
-                self.room_group_name,
-                {
-                    'type': 'chat_message',
-                    'message': {"person":message["person"]},
-                }
-            )
-
-    
+        # Send message to room group
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name, {"type": "chat.message", "message": message}
+        )
 
     # Receive message from room group
-    async def chat_message(self, event):
-        message = event['message']
-        self.user = self.scope["user"]
+    def chat_message(self, event):
+        message = event["message"]
 
-        try:
-            if message["who"] == message["personMessaging"]:
-                return
-        except:
-            print("")
-
-
-
-
-        if message["person"] != str(self.user):
-            return
-
-
-
-    
         # Send message to WebSocket
-        await self.send(text_data=json.dumps({
-            'message': message["personMessaging"],
-        }))
+        self.send(text_data=json.dumps({"message": message}))
